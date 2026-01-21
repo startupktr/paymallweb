@@ -1,6 +1,8 @@
 import { ShoppingCart, Clock, Users, Store, Smartphone, Shield, ChevronRight, Check, Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ScrollAnimation, StaggerContainer, StaggerItem } from "@/components/ScrollAnimation";
+import CustomerFeedbackForm from "@/components/CustomerFeedbackForm";
+import DemoRequestForm from "@/components/DemoRequestForm";
 import phoneMockup from "@/assets/phone-mockup.png";
 import heroBg from "@/assets/hero-bg.jpg";
 import { useState } from "react";
@@ -507,50 +509,7 @@ const About = () => {
           </ScrollAnimation>
           
           <ScrollAnimation direction="right" delay={0.2}>
-            <div className="bg-card rounded-3xl p-8 shadow-lg border border-border/50">
-              <h3 className="font-display text-xl font-bold mb-6 text-foreground">Request a Demo</h3>
-              <form className="space-y-4">
-                <div className="grid sm:grid-cols-2 gap-4">
-                  <input 
-                    type="text" 
-                    placeholder="First Name" 
-                    className="w-full px-4 py-3 rounded-xl border border-border bg-background text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50"
-                  />
-                  <input 
-                    type="text" 
-                    placeholder="Last Name" 
-                    className="w-full px-4 py-3 rounded-xl border border-border bg-background text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50"
-                  />
-                </div>
-                <input 
-                  type="email" 
-                  placeholder="Work Email" 
-                  className="w-full px-4 py-3 rounded-xl border border-border bg-background text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50"
-                />
-                <input 
-                  type="text" 
-                  placeholder="Company Name" 
-                  className="w-full px-4 py-3 rounded-xl border border-border bg-background text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50"
-                />
-                <select 
-                  className="w-full px-4 py-3 rounded-xl border border-border bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary/50"
-                >
-                  <option value="">Number of Stores</option>
-                  <option value="1-5">1-5 locations</option>
-                  <option value="6-20">6-20 locations</option>
-                  <option value="21-50">21-50 locations</option>
-                  <option value="50+">50+ locations</option>
-                </select>
-                <textarea 
-                  placeholder="Tell us about your needs..." 
-                  rows={3}
-                  className="w-full px-4 py-3 rounded-xl border border-border bg-background text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50 resize-none"
-                />
-                <Button variant="hero" size="lg" className="w-full">
-                  Request Demo
-                </Button>
-              </form>
-            </div>
+            <DemoRequestForm />
           </ScrollAnimation>
         </div>
       </div>
@@ -644,6 +603,7 @@ const Index = () => {
       <Benefits />
       <WhyPayMall />
       <CTA />
+      <CustomerFeedbackForm />
       <About />
       <Footer />
     </main>
