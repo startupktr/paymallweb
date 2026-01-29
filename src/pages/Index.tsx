@@ -1,8 +1,10 @@
 import { ShoppingCart, Clock, Users, Store, Smartphone, Shield, ChevronRight, Check, Menu, X } from "lucide-react";
+import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { ScrollAnimation, StaggerContainer, StaggerItem } from "@/components/ScrollAnimation";
 import CustomerFeedbackForm from "@/components/CustomerFeedbackForm";
 import DemoRequestForm from "@/components/DemoRequestForm";
+import FeaturedBlogs from "@/components/blog/FeaturedBlogs";
 import phoneMockup from "@/assets/phone-mockup.png";
 import heroBg from "@/assets/hero-bg.jpg";
 import logo from "@/assets/logo.png"
@@ -550,8 +552,8 @@ const Footer = () => {
               <h4 className="font-display font-semibold mb-4">Company</h4>
               <ul className="space-y-2 text-sm text-primary-foreground/70">
                 <li><a href="#about" className="hover:text-primary transition-colors">About</a></li>
+                <li><Link to="/blog" className="hover:text-primary transition-colors">Blog</Link></li>
                 <li><a href="#" className="hover:text-primary transition-colors">Careers</a></li>
-                <li><a href="#" className="hover:text-primary transition-colors">Blog</a></li>
                 <li><a href="#" className="hover:text-primary transition-colors">Press</a></li>
               </ul>
             </div>
@@ -616,6 +618,7 @@ const Index = () => {
       <Benefits />
       <WhyPayMall />
       <CTA />
+      <FeaturedBlogs />
       <CustomerFeedbackForm />
       <About />
       <Footer />
