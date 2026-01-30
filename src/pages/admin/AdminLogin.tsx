@@ -18,14 +18,17 @@ const AdminLogin = () => {
     e.preventDefault();
     setIsLoading(true);
 
-    // Small delay for UX
-    await new Promise((resolve) => setTimeout(resolve, 500));
-
-    if (login(code)) {
-      toast.success('Welcome to Admin Dashboard!');
-      navigate('/admin/blogs');
-    } else {
-      toast.error('Invalid admin code');
+    try {
+      const isValid = await login(code);
+      
+      if (isValid) {
+        toast.success('Welcome to Admin Dashboard!');
+        navigate('/admin/blogs');
+      } else {
+        toast.error('Invalid admin code');
+      }
+    } catch (error) {
+      toast.error('Failed to verify admin code');
     }
 
     setIsLoading(false);
