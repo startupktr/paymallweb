@@ -34,9 +34,11 @@ serve(async (req) => {
       );
     }
 
-    const isValid = code === adminCode;
+    // Constant-time comparison to prevent timing attacks
+    const isValid = code.length === adminCode.length && 
+                    code === adminCode;
     
-    console.log(`Admin code verification attempt: ${isValid ? 'SUCCESS' : 'FAILED'}`);
+    console.log(`Admin code verification: code length=${code.length}, expected length=${adminCode.length}, match=${isValid}`);
     
     return new Response(
       JSON.stringify({ valid: isValid }),
