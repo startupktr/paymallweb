@@ -551,10 +551,20 @@ const Footer = () => {
             <div>
               <h4 className="font-display font-semibold mb-4">Company</h4>
               <ul className="space-y-2 text-sm text-primary-foreground/70">
-                <li><a href="#about" className="hover:text-primary transition-colors">About</a></li>
+                <li><Link to="/about" className="hover:text-primary transition-colors">About Us</Link></li>
                 <li><Link to="/blog" className="hover:text-primary transition-colors">Blog</Link></li>
+                <li><Link to="/contact" className="hover:text-primary transition-colors">Contact Us</Link></li>
                 <li><a href="#" className="hover:text-primary transition-colors">Careers</a></li>
-                <li><a href="#" className="hover:text-primary transition-colors">Press</a></li>
+              </ul>
+            </div>
+
+            <div>
+              <h4 className="font-display font-semibold mb-4">Policy</h4>
+              <ul className="space-y-2 text-sm text-primary-foreground/70">
+                <li><Link to="/terms" className="hover:text-primary transition-colors">Terms & Conditions</Link></li>
+                <li><Link to="/privacy" className="hover:text-primary transition-colors">Privacy Policy</Link></li>
+                <li><Link to="/refund" className="hover:text-primary transition-colors">Refund & Cancellation</Link></li>
+                <li><Link to="/pricing" className="hover:text-primary transition-colors">Pricing Policy</Link></li>
               </ul>
             </div>
 
@@ -595,12 +605,12 @@ const Footer = () => {
 
         <div className="border-t border-primary-foreground/20 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-sm text-primary-foreground/50">
-            © 2024 PayMall. All rights reserved.
+            © 2025 PayMall. All rights reserved.
           </p>
-          <div className="flex gap-6 text-sm text-primary-foreground/50">
-            <a href="#" className="hover:text-primary-foreground transition-colors">Privacy Policy</a>
-            <a href="#" className="hover:text-primary-foreground transition-colors">Terms of Service</a>
-            <a href="#" className="hover:text-primary-foreground transition-colors">Cookie Policy</a>
+          <div className="flex flex-wrap gap-4 md:gap-6 text-sm text-primary-foreground/50">
+            <Link to="/privacy" className="hover:text-primary-foreground transition-colors">Privacy Policy</Link>
+            <Link to="/terms" className="hover:text-primary-foreground transition-colors">Terms of Service</Link>
+            <Link to="/refund" className="hover:text-primary-foreground transition-colors">Refund Policy</Link>
           </div>
         </div>
       </div>
