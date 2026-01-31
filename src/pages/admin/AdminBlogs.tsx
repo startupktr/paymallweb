@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { Plus, Edit, Trash2, Eye, EyeOff, Star, LogOut, ExternalLink } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -24,22 +24,23 @@ import {
   AlertDialogTrigger,
 } from '@/components/ui/alert-dialog';
 import { useAllBlogs, useDeleteBlog, useUpdateBlog } from '@/hooks/useBlogs';
-import { useBlogAdmin } from '@/hooks/useBlogAdmin';
+import { useAdminAuth } from '@/hooks/useAdminAuth';
 import logo from '@/assets/logo.png';
 
 const AdminBlogs = () => {
   const navigate = useNavigate();
-  const { isAuthenticated, isLoading: authLoading, logout } = useBlogAdmin();
+  const { isAuthenticated, isLoading: authLoading, logout } = useAdminAuth();
   const { data: blogs, isLoading } = useAllBlogs();
   const deleteBlog = useDeleteBlog();
   const updateBlog = useUpdateBlog();
   const [deletingId, setDeletingId] = useState<string | null>(null);
 
   // Redirect if not authenticated
-  if (!authLoading && !isAuthenticated) {
-    navigate('/admin/login');
-    return null;
-  }
+  useEffect(() => {
+    if (!authLoading && !isAuthenticated) {
+      navigate('/admin/login');
+    }
+  }, [authLoading, isAuthenticated, navigate]);
 
   const handleDelete = async (id: string) => {
     setDeletingId(id);
@@ -62,10 +63,22 @@ const AdminBlogs = () => {
     });
   };
 
-  const handleLogout = () => {
-    logout();
+  const handleLogout = async () => {
+    await logout();
     navigate('/');
   };
+
+  if (authLoading) {
+    return (
+      <div className="min-h-screen flex items-center justify-center">
+        <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary"></div>
+      </div>
+    );
+  }
+
+  if (!isAuthenticated) {
+    return null;
+  }
 
   return (
     <main className="min-h-screen bg-background">
@@ -113,7 +126,7 @@ const AdminBlogs = () => {
 
         {/* Table */}
         <div className="bg-card rounded-xl border border-border/50 overflow-hidden">
-          {isLoading || authLoading ? (
+          {isLoading ? (
             <div className="p-8 space-y-4">
               {[1, 2, 3, 4].map((i) => (
                 <Skeleton key={i} className="h-16 w-full" />

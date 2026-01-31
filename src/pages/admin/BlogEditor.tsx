@@ -9,7 +9,7 @@ import { Switch } from '@/components/ui/switch';
 import { Badge } from '@/components/ui/badge';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import RichTextEditor from '@/components/blog/RichTextEditor';
-import { useBlogAdmin } from '@/hooks/useBlogAdmin';
+import { useAdminAuth } from '@/hooks/useAdminAuth';
 import {
   useBlogById,
   useCreateBlog,
@@ -22,7 +22,7 @@ import logo from '@/assets/logo.png';
 const BlogEditor = () => {
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
-  const { isAuthenticated, isLoading: authLoading } = useBlogAdmin();
+  const { isAuthenticated, isLoading: authLoading } = useAdminAuth();
   const { data: existingBlog, isLoading: blogLoading } = useBlogById(id || '');
   const createBlog = useCreateBlog();
   const updateBlog = useUpdateBlog();
