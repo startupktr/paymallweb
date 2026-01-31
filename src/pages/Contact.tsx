@@ -51,13 +51,15 @@ const Contact = () => {
     {
       icon: Phone,
       title: "Call Us",
-      value: "+91 98765 43210",
-      link: "tel:+919876543210",
+      // value: "+91 ***** *****",
+      // link: "tel:+919876543210",
+      value: "Will be updated soon",
+      link: null,
     },
     {
       icon: MapPin,
       title: "Visit Us",
-      value: "Bangalore, Karnataka, India",
+      value: "Will be updated soon",
       link: null,
     },
     {
@@ -238,7 +240,7 @@ const Contact = () => {
                       href="mailto:business@paymall.live" 
                       className="inline-flex items-center gap-2 text-primary font-semibold hover:text-primary/80 transition-colors"
                     >
-                      business@paymall.live <ArrowLeft className="w-4 h-4 rotate-180" />
+                      support@paymall.live <ArrowLeft className="w-4 h-4 rotate-180" />
                     </a>
                   </div>
                 </div>

@@ -114,7 +114,7 @@ const Blog = () => {
 
       {/* Tags */}
       {allTags.length > 0 && (
-        <section className="py-6 border-b border-border bg-background/80 backdrop-blur-sm sticky top-[72px] z-40">
+        <section className="py-6 border-b border-border bg-background/80 backdrop-blur-sm top-[72px] z-40">
           <div className="container px-4">
             <motion.div 
               className="flex flex-wrap items-center gap-2 justify-center"
