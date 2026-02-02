@@ -24,7 +24,7 @@ const Navbar = () => {
       <div className="container mx-auto px-4 py-4 flex items-center justify-between">
         <a href="#" className="flex items-center gap-2">
           <div className="w-10 h-10 gradient-hero rounded-xl flex items-center justify-center shadow-glow">
-            <img src={logo} alt="" className="w-full h-full object-cover rounded-sm" />
+            <img src={logo} alt="PayMall Logo" width={40} height={40} className="w-full h-full object-cover rounded-sm" />
           </div>
           <span className="text-xl font-display font-bold text-foreground">PayMall</span>
         </a>
@@ -74,7 +74,7 @@ const Hero = () => {
     <section className="relative min-h-screen flex items-center pt-20 overflow-hidden">
       {/* Background Image with Overlay */}
       <div className="absolute inset-0 z-0">
-        <img src={heroBg} alt="" className="w-full h-full object-cover" />
+        <img src={heroBg} alt="Store checkout background" width={1920} height={1080} className="w-full h-full object-cover" />
         <div className="absolute inset-0 bg-gradient-to-r from-foreground/90 via-foreground/80 to-foreground/60" />
       </div>
 
@@ -155,6 +155,8 @@ const Hero = () => {
               <img
                 src={phoneMockup}
                 alt="PayMall App Interface"
+                width={256}
+                height={341}
                 className="relative z-10 w-64 md:w-80 animate-float drop-shadow-2xl rounded-xl"
               />
             </div>
@@ -339,6 +341,9 @@ const Benefits = () => {
                 <img
                   src={phoneMockup}
                   alt="Customer App View"
+                  width={256}
+                  height={341}
+                  loading="lazy"
                   className="relative z-10 w-64 mx-auto animate-float-delayed drop-shadow-2xl rounded-xl"
                 />
               </div>
