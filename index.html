@@ -43,14 +43,23 @@
   <meta name="theme-color" content="#1f9d8f" />
   <link rel="PayMall" href="./src/assets/logo.png" />
 
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-CWHB2X76DL"></script>
+  <!-- Google tag (gtag.js) - Deferred for performance -->
   <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag() { dataLayer.push(arguments); }
-    gtag('js', new Date());
-
-    gtag('config', 'G-CWHB2X76DL');
+    // Defer Google Analytics until after page load
+    window.addEventListener('load', function() {
+      var script = document.createElement('script');
+      script.src = 'https://www.googletagmanager.com/gtag/js?id=G-CWHB2X76DL';
+      script.async = true;
+      document.head.appendChild(script);
+      
+      script.onload = function() {
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        window.gtag = gtag;
+        gtag('js', new Date());
+        gtag('config', 'G-CWHB2X76DL');
+      };
+    });
   </script>
 </head>
 
