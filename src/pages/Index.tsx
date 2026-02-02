@@ -34,6 +34,7 @@ const Navbar = () => {
           <a href="#how-it-works" className="text-muted-foreground hover:text-foreground transition-colors font-medium">How It Works</a>
           <a href="#customers" className="text-muted-foreground hover:text-foreground transition-colors font-medium">Customers</a>
           <a href="#businesses" className="text-muted-foreground hover:text-foreground transition-colors font-medium">Businesses</a>
+          <a href="#blogs" className="text-muted-foreground hover:text-foreground transition-colors font-medium">Blogs</a>
           <a href="#about" className="text-muted-foreground hover:text-foreground transition-colors font-medium">About</a>
         </div>
 
@@ -58,6 +59,7 @@ const Navbar = () => {
           <a href="#how-it-works" className="block py-2 text-muted-foreground hover:text-foreground">How It Works</a>
           <a href="#customers" className="block py-2 text-muted-foreground hover:text-foreground">Customers</a>
           <a href="#businesses" className="block py-2 text-muted-foreground hover:text-foreground">Businesses</a>
+          <a href="#blogs" className="block py-2 text-muted-foreground hover:text-foreground">Blogs</a>
           <a href="#about" className="block py-2 text-muted-foreground hover:text-foreground">About</a>
           <div className="flex flex-col gap-2 pt-4">
             <Button variant="outline" className="w-full">Request Demo</Button>
