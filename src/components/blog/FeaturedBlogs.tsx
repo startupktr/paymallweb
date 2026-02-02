@@ -20,7 +20,7 @@ const FeaturedBlogs = () => {
   }
 
   return (
-    <section className="py-24 bg-background">
+    <section id="blogs" className="py-24 bg-background">
       <div className="container px-4">
         <ScrollAnimation className="text-center max-w-3xl mx-auto mb-12">
           <span className="text-sm font-semibold text-primary uppercase tracking-wider">
