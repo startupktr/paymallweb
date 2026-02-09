@@ -20,8 +20,10 @@ const lazyRetry = (importFn: () => Promise<any>) =>
 const Blog = lazyRetry(() => import("./pages/Blog"));
 const BlogPost = lazyRetry(() => import("./pages/BlogPost"));
 const AdminLogin = lazyRetry(() => import("./pages/admin/AdminLogin"));
+const AdminRegister = lazyRetry(() => import("./pages/admin/AdminRegister"));
 const AdminBlogs = lazyRetry(() => import("./pages/admin/AdminBlogs"));
 const BlogEditor = lazyRetry(() => import("./pages/admin/BlogEditor"));
+const AdminManagement = lazyRetry(() => import("./pages/admin/AdminManagement"));
 const TermsConditions = lazyRetry(() => import("./pages/TermsConditions"));
 const PrivacyPolicy = lazyRetry(() => import("./pages/PrivacyPolicy"));
 const RefundCancellation = lazyRetry(() => import("./pages/RefundCancellation"));
