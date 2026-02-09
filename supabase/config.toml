@@ -2,3 +2,9 @@ project_id = "ukkdfbfhvcnumeodgdoe"
 
 [functions.verify-admin-code]
 verify_jwt = false
+
+[functions.setup-master-admin]
+verify_jwt = false
+
+[functions.register-admin]
+verify_jwt = false
