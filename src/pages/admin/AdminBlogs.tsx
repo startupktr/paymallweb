@@ -95,6 +95,12 @@ const AdminBlogs = () => {
             <Badge variant="secondary">Admin</Badge>
           </div>
           <div className="flex items-center gap-4">
+            <Link to="/admin/management">
+              <Button variant="ghost" size="sm" className="text-primary-foreground/80 hover:text-primary-foreground hover:bg-primary-foreground/10">
+                <Users className="w-4 h-4 mr-2" />
+                Manage Admins
+              </Button>
+            </Link>
             <Link to="/blog" target="_blank">
               <Button variant="ghost" size="sm" className="text-primary-foreground/80 hover:text-primary-foreground hover:bg-primary-foreground/10">
                 <ExternalLink className="w-4 h-4 mr-2" />
