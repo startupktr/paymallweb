@@ -156,7 +156,10 @@ const AdminLogin = () => {
               </Button>
             </form>
 
-            <div className="mt-6 text-center">
+            <div className="mt-6 text-center space-y-2">
+              <Link to="/admin/register" className="text-sm text-primary hover:underline block">
+                Don't have an account? Register with invite code
+              </Link>
               <Link
                 to="/"
                 className="text-sm text-muted-foreground hover:text-foreground transition-colors inline-flex items-center gap-1"

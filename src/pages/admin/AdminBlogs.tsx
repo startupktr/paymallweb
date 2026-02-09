@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { Plus, Edit, Trash2, Eye, EyeOff, Star, LogOut, ExternalLink } from 'lucide-react';
+import { Plus, Edit, Trash2, Eye, EyeOff, Star, LogOut, ExternalLink, Users } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Skeleton } from '@/components/ui/skeleton';
@@ -95,6 +95,12 @@ const AdminBlogs = () => {
             <Badge variant="secondary">Admin</Badge>
           </div>
           <div className="flex items-center gap-4">
+            <Link to="/admin/management">
+              <Button variant="ghost" size="sm" className="text-primary-foreground/80 hover:text-primary-foreground hover:bg-primary-foreground/10">
+                <Users className="w-4 h-4 mr-2" />
+                Manage Admins
+              </Button>
+            </Link>
             <Link to="/blog" target="_blank">
               <Button variant="ghost" size="sm" className="text-primary-foreground/80 hover:text-primary-foreground hover:bg-primary-foreground/10">
                 <ExternalLink className="w-4 h-4 mr-2" />
