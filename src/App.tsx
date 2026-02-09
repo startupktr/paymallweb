@@ -7,19 +7,28 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import ScrollToTop from "./components/ScrollToTop";
 
+// Retry dynamic imports on failure (handles stale chunks after rebuilds)
+const lazyRetry = (importFn: () => Promise<any>) =>
+  lazy(() =>
+    importFn().catch(() => {
+      window.location.reload();
+      return new Promise(() => {}); // never resolves, page will reload
+    })
+  );
+
 // Lazy load non-critical routes to reduce initial bundle size
-const Blog = lazy(() => import("./pages/Blog"));
-const BlogPost = lazy(() => import("./pages/BlogPost"));
-const AdminLogin = lazy(() => import("./pages/admin/AdminLogin"));
-const AdminBlogs = lazy(() => import("./pages/admin/AdminBlogs"));
-const BlogEditor = lazy(() => import("./pages/admin/BlogEditor"));
-const TermsConditions = lazy(() => import("./pages/TermsConditions"));
-const PrivacyPolicy = lazy(() => import("./pages/PrivacyPolicy"));
-const RefundCancellation = lazy(() => import("./pages/RefundCancellation"));
-const PricingPolicy = lazy(() => import("./pages/PricingPolicy"));
-const Contact = lazy(() => import("./pages/Contact"));
-const AboutUs = lazy(() => import("./pages/AboutUs"));
-const NotFound = lazy(() => import("./pages/NotFound"));
+const Blog = lazyRetry(() => import("./pages/Blog"));
+const BlogPost = lazyRetry(() => import("./pages/BlogPost"));
+const AdminLogin = lazyRetry(() => import("./pages/admin/AdminLogin"));
+const AdminBlogs = lazyRetry(() => import("./pages/admin/AdminBlogs"));
+const BlogEditor = lazyRetry(() => import("./pages/admin/BlogEditor"));
+const TermsConditions = lazyRetry(() => import("./pages/TermsConditions"));
+const PrivacyPolicy = lazyRetry(() => import("./pages/PrivacyPolicy"));
+const RefundCancellation = lazyRetry(() => import("./pages/RefundCancellation"));
+const PricingPolicy = lazyRetry(() => import("./pages/PricingPolicy"));
+const Contact = lazyRetry(() => import("./pages/Contact"));
+const AboutUs = lazyRetry(() => import("./pages/AboutUs"));
+const NotFound = lazyRetry(() => import("./pages/NotFound"));
 
 const queryClient = new QueryClient();
 
