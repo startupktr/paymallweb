@@ -7,10 +7,8 @@ const TermsConditions = () => {
   const sections = [
     {
       icon: FileText,
-      title: "1. Acceptance of Terms",
-      content: `By accessing and using the PayMall application and services, you acknowledge that you have read, understood, and agree to be bound by these Terms and Conditions. If you do not agree to these terms, please do not use our services.
-
-These terms apply to all users of the PayMall platform, including customers, merchants, and business partners. We reserve the right to modify these terms at any time, and your continued use of the service constitutes acceptance of any modifications.`
+      title: "1. Introduction",
+      content: `Welcome to PayMall, a mobile application designed to enable customers to scan products, make digital payments, and complete in-store shopping without traditional billing queues. By accessing or using the PayMall app, you agree to be bound by these Terms & Conditions (“Terms”). If you do not agree, you must not use the app.`
     },
     {
       icon: Users,

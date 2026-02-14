@@ -39,8 +39,9 @@ const Navbar = () => {
         </div>
 
         <div className="hidden md:flex items-center gap-4">
-          <Button variant="outline" size="sm">Request Demo</Button>
-          <Button size="sm">Download App</Button>
+        <a href="#about">
+        <Button variant="outline" className="w-full">Request Demo</Button> </a>
+          {/* <Button size="sm">Download App</Button> */}
         </div>
 
         <button className="md:hidden p-2" onClick={() => setIsOpen(!isOpen)}>
@@ -62,8 +63,9 @@ const Navbar = () => {
           <a href="#blogs" className="block py-2 text-muted-foreground hover:text-foreground">Blogs</a>
           <a href="#about" className="block py-2 text-muted-foreground hover:text-foreground">About</a>
           <div className="flex flex-col gap-2 pt-4">
-            <Button variant="outline" className="w-full">Request Demo</Button>
-            <Button className="w-full">Download App</Button>
+          <a href="#about">
+             <Button variant="outline" className="w-full">Request Demo</Button> </a>
+            {/* <Button className="w-full">Download App</Button> */}
           </div>
         </motion.div>
       )}
@@ -90,7 +92,7 @@ const Hero = () => {
               transition={{ duration: 0.6, delay: 0.2 }}
             >
               <span className="w-2 h-2 bg-primary rounded-full animate-pulse" />
-              <span className="text-sm font-medium text-primary-foreground/90">Now available in selected stores</span>
+              <span className="text-sm font-medium text-primary-foreground/90">Will be available in nearby stores..!!</span>
             </motion.div>
 
             <motion.h1
@@ -120,13 +122,13 @@ const Hero = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.5 }}
             >
-              <Button variant="hero" size="lg" className="group">
-                Download Free
+              <Button variant="hero" size="lg" className="group" onClick={() => window.open("https://www.youtube.com/@PayMallOfficial", "_blank")}>
+                Watch Demo
                 <ChevronRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </Button>
-              <Button variant="hero-outline" size="lg">
+              {/* <Button variant="hero-outline" size="lg" >
                 Watch Demo
-              </Button>
+              </Button> */}
             </motion.div>
 
             <motion.div
@@ -333,7 +335,7 @@ const Benefits = () => {
               </StaggerContainer>
 
               <Button variant="secondary" size="lg" className="mt-8">
-                Download Now
+                App Coming Soon.. !!
               </Button>
             </ScrollAnimation>
 
@@ -390,9 +392,9 @@ const Benefits = () => {
                 ))}
               </div>
 
-              <Button variant="hero" size="lg">
+              {/* <Button variant="hero" size="lg">
                 Schedule a Demo
-              </Button>
+              </Button> */}
             </ScrollAnimation>
           </div>
         </div>
@@ -457,23 +459,46 @@ const CTA = () => {
 
         <ScrollAnimation delay={0.2}>
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
-            <Button variant="glass" size="xl">
+            {/* <Button variant="glass" size="xl">
               <svg className="w-6 h-6 mr-2" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M17.5 12.5c0-1.58-.79-2.97-2-3.81v7.62c1.21-.84 2-2.23 2-3.81z" />
                 <path d="M4 3.6V20.4c0 .88.72 1.6 1.6 1.6h12.8c.88 0 1.6-.72 1.6-1.6V3.6c0-.88-.72-1.6-1.6-1.6H5.6C4.72 2 4 2.72 4 3.6z" />
               </svg>
               App Store
-            </Button>
+            </Button> */}
             <Button variant="glass" size="xl">
-              <svg className="w-6 h-6 mr-2" viewBox="0 0 24 24" fill="currentColor">
+              {/* <svg className="w-6 h-6 mr-2" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M3,20.5V3.5C3,2.91 3.34,2.39 3.84,2.15L13.69,12L3.84,21.85C3.34,21.6 3,21.09 3,20.5M16.81,15.12L6.05,21.34L14.54,12.85L16.81,15.12M20.16,10.81C20.5,11.08 20.75,11.5 20.75,12C20.75,12.5 20.53,12.9 20.18,13.18L17.89,14.5L15.39,12L17.89,9.5L20.16,10.81M6.05,2.66L16.81,8.88L14.54,11.15L6.05,2.66Z" />
-              </svg>
-              Google Play
+              </svg> */}
+              <svg
+  className="w-6 h-6 mr-2"
+  viewBox="0 0 24 24"
+  fill="currentColor"
+  xmlns="http://www.w3.org/2000/svg"
+>
+  {/* Clock Circle */}
+  <circle cx="12" cy="12" r="9" stroke="currentColor" strokeWidth="2" fill="none" />
+  
+  {/* Clock Hands */}
+  <path
+    d="M12 7v5l3 2"
+    stroke="currentColor"
+    strokeWidth="2"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    fill="none"
+  />
+
+  {/* Small list lines (waitlist concept) */}
+  <line x1="17" y1="5" x2="21" y2="5" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+  <line x1="17" y1="9" x2="21" y2="9" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+</svg>
+              Join Waitlist Now
             </Button>
           </div>
 
           <p className="text-sm text-primary-foreground/60">
-            Free to download • No credit card required • Available worldwide
+            Scan Products • Pay Instantly • Walk Out
           </p>
         </ScrollAnimation>
       </div>
@@ -498,7 +523,7 @@ const About = () => {
               Reimagining Retail for the Modern Age
             </h2>
             <p className="text-lg text-muted-foreground mb-6">
-              Founded in 2024, PayMall was born from a simple frustration: why do we still wait in lines
+              Founded in 2025, PayMall was born from a simple frustration: why do we still wait in lines
               when technology has solved so many other problems?
             </p>
             <p className="text-muted-foreground mb-8">
@@ -506,7 +531,7 @@ const About = () => {
               a solution that benefits everyone — shoppers save time, businesses increase efficiency,
               and the planet benefits from reduced receipt paper waste.
             </p>
-            <StaggerContainer className="flex gap-8" staggerDelay={0.1}>
+            {/* <StaggerContainer className="flex gap-8" staggerDelay={0.1}>
               {aboutStats.map((stat, index) => (
                 <StaggerItem key={index}>
                   <div>
@@ -515,7 +540,7 @@ const About = () => {
                   </div>
                 </StaggerItem>
               ))}
-            </StaggerContainer>
+            </StaggerContainer> */}
           </ScrollAnimation>
 
           <ScrollAnimation direction="right" delay={0.2}>
@@ -541,7 +566,7 @@ const Footer = () => {
                 <span className="text-xl font-display font-bold">PayMall</span>
               </div>
               <p className="text-primary-foreground/70 text-sm">
-                Skip the queue, pay instantly. The future of retail checkout.
+              Scan. Pay & Go
               </p>
             </div>
 
@@ -587,11 +612,11 @@ const Footer = () => {
                         <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
                       </svg>
                     </a>
-                    <a href="#" className="w-10 h-10 rounded-full bg-primary-foreground/10 flex items-center justify-center hover:bg-primary transition-colors">
+                    {/* <a href="#" className="w-10 h-10 rounded-full bg-primary-foreground/10 flex items-center justify-center hover:bg-primary transition-colors">
                       <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
                         <path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z" />
                       </svg>
-                    </a>
+                    </a> */}
                     <a href="https://www.instagram.com/paymall_official?igsh=MW03N2Ywc3gzbXBuMA==" className="w-10 h-10 rounded-full bg-primary-foreground/10 flex items-center justify-center hover:bg-primary transition-colors">
                       <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" /></svg>
                     </a>
@@ -610,15 +635,15 @@ const Footer = () => {
           </div>
         </ScrollAnimation>
 
-        <div className="border-t border-primary-foreground/20 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+        <div className="border-t border-primary-foreground/20 pt-8 flex flex-col md:flex-row justify-center  items-center gap-4">
           <p className="text-sm text-primary-foreground/50">
             © 2025 PayMall. All rights reserved.
           </p>
-          <div className="flex flex-wrap gap-4 md:gap-6 text-sm text-primary-foreground/50">
+          {/* <div className="flex flex-wrap gap-4 md:gap-6 text-sm text-primary-foreground/50">
             <Link to="/privacy" className="hover:text-primary-foreground transition-colors">Privacy Policy</Link>
             <Link to="/terms" className="hover:text-primary-foreground transition-colors">Terms of Service</Link>
             <Link to="/refund" className="hover:text-primary-foreground transition-colors">Refund Policy</Link>
-          </div>
+          </div> */}
         </div>
       </div>
     </footer>

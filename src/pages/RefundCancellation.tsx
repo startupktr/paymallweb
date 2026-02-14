@@ -5,15 +5,14 @@ import logo from "@/assets/logo.png";
 
 const RefundCancellation = () => {
   const refundSteps = [
-    { step: "1", title: "Initiate Request", desc: "Contact support or use the app within 24 hours" },
-    { step: "2", title: "Verification", desc: "Our team reviews your request within 2 business days" },
-    { step: "3", title: "Processing", desc: "Approved refunds are processed within 5-7 business days" },
-    { step: "4", title: "Confirmation", desc: "Receive email confirmation once refund is complete" },
+    { step: "1", title: "Digital Payment Refunds", desc: "Refund eligibility depends on the merchant’s return policy." },
+    { step: "2", title: "How Refunds Are Processed", desc: "Initiated by the merchant Credited to original payment method May take 5–10 business days" },
+    { step: "3", title: "PayMall’s Role", desc: "PayMall only facilitates communication and transaction confirmation." },
+    { step: "4", title: "Disputes", desc: "Users must contact the mall directly for product-related refunds." },
   ];
 
   const eligibleItems = [
     "Defective or damaged products",
-    "Wrong items delivered",
     "Products significantly different from description",
     "Duplicate transactions",
     "Service fees for failed transactions",
@@ -31,7 +30,7 @@ const RefundCancellation = () => {
     <main className="min-h-screen bg-background">
       {/* Header */}
       <motion.header 
-        className="bg-gradient-to-r from-secondary via-secondary to-primary py-16 md:py-24"
+        className="gradient-hero py-16 md:py-24"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.6 }}
@@ -141,7 +140,7 @@ const RefundCancellation = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.5 }}
           >
-            <div className="bg-card rounded-2xl p-6 md:p-8 border border-border/50">
+            {/* <div className="bg-card rounded-2xl p-6 md:p-8 border border-border/50">
               <div className="flex items-start gap-4">
                 <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0">
                   <Clock className="w-6 h-6 text-primary" />
@@ -155,9 +154,9 @@ const RefundCancellation = () => {
                   </p>
                 </div>
               </div>
-            </div>
+            </div> */}
 
-            <div className="bg-card rounded-2xl p-6 md:p-8 border border-border/50">
+            {/* <div className="bg-card rounded-2xl p-6 md:p-8 border border-border/50">
               <div className="flex items-start gap-4">
                 <div className="w-12 h-12 rounded-xl bg-secondary/20 flex items-center justify-center flex-shrink-0">
                   <CreditCard className="w-6 h-6 text-secondary" />
@@ -174,7 +173,7 @@ const RefundCancellation = () => {
                   </ul>
                 </div>
               </div>
-            </div>
+            </div> */}
 
             <div className="bg-card rounded-2xl p-6 md:p-8 border border-border/50">
               <div className="flex items-start gap-4">
