@@ -2,72 +2,107 @@ import { Link } from "react-router-dom";
 import { ArrowLeft, FileText, Scale, Shield, AlertTriangle, Users, Globe } from "lucide-react";
 import { motion } from "framer-motion";
 import logo from "@/assets/logo.png";
+import {
+  
+  BookOpen,
+  UserCheck,
+  Smartphone,
+  CreditCard,
+  ShieldCheck,
+  XCircle,
+} from "lucide-react";
 
 const TermsConditions = () => {
-  const sections = [
+ const sections = [
     {
       icon: FileText,
       title: "1. Introduction",
-      content: `Welcome to PayMall, a mobile application designed to enable customers to scan products, make digital payments, and complete in-store shopping without traditional billing queues. By accessing or using the PayMall app, you agree to be bound by these Terms & Conditions (“Terms”). If you do not agree, you must not use the app.`
+      content: `Welcome to PayMall, a mobile application designed to enable customers to scan products, make digital payments, and complete in-store shopping without traditional billing queues.
+
+By accessing or using the PayMall app, you agree to be bound by these Terms & Conditions (“Terms”). If you do not agree, you must not use the app.`
+    },
+    {
+      icon: BookOpen,
+      title: "2. Definitions",
+      content: `• “Company” refers to PayMall Technologies Pvt. Ltd.
+• “User” refers to any customer using the PayMall app.
+• “Merchant/Mall” refers to participating supermarkets, malls, or retail partners.
+• “Service” refers to scan-pay-go functionality and related features.`
+    },
+    
+    {
+      icon: UserCheck,
+      title: "3. Eligibility",
+      content: `• Users must be 18 years or older or use the app under parental supervision.
+• Users must provide accurate and up-to-date information.`
+    },
+    {
+      icon: Smartphone,
+      title: "4. Nature of Service",
+      content: `PayMall acts as a technology facilitator.
+
+• We do not sell products, own inventory, or control pricing.
+• All products are sold directly by the mall/merchant.`
     },
     {
       icon: Users,
-      title: "2. User Accounts",
-      content: `To use PayMall services, you must create an account by providing accurate and complete information. You are responsible for:
+      title: "5. User Responsibilities",
+      content: `Users agree to:
 
-• Maintaining the confidentiality of your account credentials
-• All activities that occur under your account
-• Notifying us immediately of any unauthorized use
-• Ensuring your account information remains current and accurate
-
-You must be at least 18 years old to create an account. One person may only maintain one active account.`
+• Scan only items they intend to purchase.
+• Complete payment before exiting the store.
+• Not misuse, manipulate, or attempt fraud through the app.
+• Cooperate with store staff/security for verification if required.`
     },
     {
-      icon: Shield,
-      title: "3. Service Usage",
-      content: `PayMall provides an in-store shopping convenience application that allows users to scan products, create digital carts, and complete transactions. You agree to:
-
-• Use the service only for lawful purposes
-• Not attempt to circumvent any security measures
-• Not use automated systems to access the service
-• Not interfere with other users' access to the service
-• Comply with all applicable laws and regulations
-
-We reserve the right to suspend or terminate accounts that violate these terms.`
+      icon: CreditCard,
+      title: "6. Payments",
+      content: `• Payments are processed via third-party payment gateways (UPI, cards, wallets).
+• PayMall does not store sensitive payment credentials.
+• Failed or duplicate payments must be reported immediately.`
     },
     {
-      icon: Scale,
-      title: "4. Payment Terms",
-      content: `All transactions processed through PayMall are subject to our payment terms:
-
-• Payments are processed through secure, encrypted channels
-• You authorize us to charge your selected payment method
-• All prices displayed include applicable taxes unless stated otherwise
-• Transaction fees may apply as disclosed during checkout
-• Refunds are processed according to our Refund & Cancellation Policy
-
-We partner with trusted payment processors to ensure secure transactions.`
+      icon: ShieldCheck,
+      title: "7. Verification & Exit Authorization",
+      content: `• Security personnel may verify digital receipts.
+• PayMall reserves the right to share transaction confirmation with the mall.`
     },
     {
       icon: AlertTriangle,
-      title: "5. Limitation of Liability",
-      content: `To the maximum extent permitted by law, PayMall and its affiliates shall not be liable for:
+      title: "8. Prohibited Activities",
+      content: `• Barcode manipulation
+• Payment bypassing
+• App tampering
+• Fraudulent chargebacks
+• Any illegal activity
 
-• Any indirect, incidental, or consequential damages
-• Loss of data, profits, or business opportunities
-• Service interruptions or system failures
-• Actions of third-party merchants or partners
-• Unauthorized access to your account
-
-Our total liability shall not exceed the amount you paid for services in the preceding 12 months.`
+Violation may result in account suspension or legal action.`
     },
     {
-      icon: Globe,
-      title: "6. Governing Law",
-      content: `These Terms and Conditions shall be governed by and construed in accordance with the laws of India. Any disputes arising from these terms shall be subject to the exclusive jurisdiction of the courts in [Your City], India.
+      icon: Scale,
+      title: "9. Limitation of Liability",
+      content: `PayMall is not responsible for:
 
-If any provision of these terms is found to be unenforceable, the remaining provisions shall continue in full force and effect. Our failure to enforce any right shall not constitute a waiver of that right.`
-    }
+• Product quality issues
+• Pricing disputes
+• Inventory mismatch
+• Network failures
+• Payment gateway downtime
+
+Maximum liability is limited to the transaction value paid via the app.`
+    },
+    {
+      icon: XCircle,
+      title: "10. Termination",
+      content: `We reserve the right to suspend or terminate accounts for violations without prior notice.`
+    },
+//     {
+//       icon: Globe,
+//       title: "11. Governing Law",
+//       content: `These Terms are governed by laws of India.
+
+// Jurisdiction: Courts of [Your City], India.`
+//     }
   ];
 
   return (

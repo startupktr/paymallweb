@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { ArrowLeft, Shield, Eye, Lock, Database, Bell, UserCheck, Share2 } from "lucide-react";
+import { ArrowLeft, Shield, Eye, Lock, Database, Bell, UserCheck, Share2,Target,Clock,} from "lucide-react";
 import { motion } from "framer-motion";
 import logo from "@/assets/logo.png";
 
@@ -7,88 +7,64 @@ const PrivacyPolicy = () => {
   const sections = [
     {
       icon: Database,
-      title: "1. Information We Collect",
-      content: `We collect information to provide and improve our services:
-
-**Personal Information:**
-• Name, email address, and phone number
-• Payment and billing information
-• Device identifiers and location data
-• Shopping preferences and purchase history
-
-**Automatically Collected:**
-• Device type, operating system, and browser
-• IP address and approximate location
-• App usage patterns and interaction data
-• Cookies and similar tracking technologies`
+      title: "1. Data We Collect",
+      content: `• Name, phone number, email
+• Device & app usage data
+• Location (mall-level, not GPS tracking)
+• Transaction history`
     },
     {
-      icon: Eye,
-      title: "2. How We Use Your Information",
-      content: `Your information helps us deliver and improve PayMall services:
-
-• Processing transactions and payments
-• Personalizing your shopping experience
-• Sending order confirmations and receipts
-• Providing customer support
-• Analyzing usage patterns to improve features
-• Sending promotional offers (with your consent)
-• Detecting and preventing fraud
-• Complying with legal obligations`
+      icon: Target,
+      title: "2. Purpose of Data Collection",
+      content: `• User authentication
+• Transaction processing
+• Fraud prevention
+• App functionality improvement
+• Legal compliance`
     },
     {
       icon: Share2,
-      title: "3. Information Sharing",
-      content: `We share your information only in specific circumstances:
+      title: "3. Data Sharing",
+      content: `We may share limited data with:
 
-**With Merchants:** Order details necessary to fulfill your purchases
-**With Payment Processors:** Secure transaction processing
-**With Service Providers:** Companies that help us operate our platform
-**For Legal Compliance:** When required by law or to protect rights
+• Participating malls (only transaction-related)
+• Payment gateways
+• Law enforcement (if legally required)
 
-We never sell your personal information to third parties for marketing purposes.`
+We never sell user data.`
     },
     {
       icon: Lock,
-      title: "4. Data Security",
-      content: `We implement robust security measures to protect your data:
-
-• 256-bit SSL/TLS encryption for all data transfers
-• PCI-DSS compliant payment processing
-• Regular security audits and penetration testing
-• Secure data centers with 24/7 monitoring
-• Access controls and employee training
-• Encrypted data storage at rest
-
-While we take extensive precautions, no system is 100% secure. We encourage you to protect your account credentials.`
+      title: "4. Data Storage & Security",
+      content: `• Encrypted data storage
+• Secure servers
+• Restricted internal access
+• Regular audits`
     },
     {
       icon: UserCheck,
-      title: "5. Your Rights & Choices",
-      content: `You have control over your personal data:
+      title: "5. User Rights",
+      content: `Users can:
 
-• **Access:** Request a copy of your personal data
-• **Correction:** Update or correct inaccurate information
-• **Deletion:** Request deletion of your account and data
-• **Portability:** Export your data in a readable format
-• **Opt-out:** Unsubscribe from marketing communications
-• **Cookies:** Manage cookie preferences in your browser
-
-To exercise these rights, contact us at privacy@paymall.live`
+• Access their data
+• Request corrections
+• Request deletion (subject to legal retention)
+• Withdraw consent`
+    },
+    {
+      icon: Clock,
+      title: "6. Data Retention",
+      content: `Transaction data is retained as required by taxation and regulatory laws.`
+    },
+    {
+      icon: Shield,
+      title: "7. Children’s Privacy",
+      content: `PayMall does not knowingly collect data from children under 13.`
     },
     {
       icon: Bell,
-      title: "6. Updates to This Policy",
-      content: `We may update this Privacy Policy periodically to reflect:
-
-• Changes in our practices or services
-• New legal or regulatory requirements
-• Feedback from users and stakeholders
-
-We will notify you of significant changes via email or in-app notification. Your continued use of PayMall after changes constitutes acceptance of the updated policy.
-
-**Effective Date:** January 2025
-**Last Updated:** January 31, 2025`
+      title: "8. Policy Updates",
+      content: `Users will be notified of significant changes to this Privacy Policy.`
     }
   ];
 
@@ -96,7 +72,7 @@ We will notify you of significant changes via email or in-app notification. Your
     <main className="min-h-screen bg-background">
       {/* Header */}
       <motion.header 
-        className="bg-gradient-to-r from-primary via-primary to-secondary py-16 md:py-24"
+        className="gradient-hero py-16 md:py-24"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.6 }}

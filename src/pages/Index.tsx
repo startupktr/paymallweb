@@ -1,4 +1,5 @@
-import { ShoppingCart, Clock, Users, Store, Smartphone, Shield, ChevronRight, Check, Menu, X } from "lucide-react";
+import { ShoppingCart, Clock, Users, Store, Smartphone, Shield, ChevronRight, Check, Menu, X, ShieldCheck,
+  BadgeCheck, Headphones } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { ScrollAnimation, StaggerContainer, StaggerItem } from "@/components/ScrollAnimation";
@@ -10,9 +11,26 @@ import heroBg from "@/assets/hero-bg.jpg";
 import logo from "@/assets/logo.png"
 import { useState } from "react";
 import { motion } from "framer-motion";
+import BackToTop from "@/pages/BackToTop"; // adjust path if needed
+import { useEffect, useRef } from "react";
+
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const menuRef = useRef(null);
+  useEffect(() => {
+  function handleClickOutside(event) {
+    if (menuRef.current && !menuRef.current.contains(event.target)) {
+      setIsOpen(false);
+    }
+  }
+  if (isOpen) {
+    document.addEventListener("mousedown", handleClickOutside);
+  }
+  return () => {
+    document.removeEventListener("mousedown", handleClickOutside);
+  };
+}, [isOpen]);
 
   return (
     <motion.nav
@@ -21,6 +39,7 @@ const Navbar = () => {
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.6, ease: [0.25, 0.4, 0.25, 1] }}
     >
+      
       <div className="container mx-auto px-4 py-4 flex items-center justify-between">
         <a href="#" className="flex items-center gap-2">
           <div className="w-10 h-10 gradient-hero rounded-xl flex items-center justify-center shadow-glow">
@@ -48,27 +67,36 @@ const Navbar = () => {
           {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
         </button>
       </div>
-
+      
       {isOpen && (
-        <motion.div
-          className="md:hidden bg-card border-t border-border py-4 px-4 space-y-4"
-          initial={{ opacity: 0, height: 0 }}
-          animate={{ opacity: 1, height: "auto" }}
-          exit={{ opacity: 0, height: 0 }}
-        >
+  <motion.div
+            ref={menuRef}
+            className="md:hidden bg-card border-t border-border py-4 px-4 space-y-4"
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: "auto" }}
+            exit={{ opacity: 0, height: 0 }}
+          >
           <a href="#problem" className="block py-2 text-muted-foreground hover:text-foreground">Problem</a>
           <a href="#how-it-works" className="block py-2 text-muted-foreground hover:text-foreground">How It Works</a>
           <a href="#customers" className="block py-2 text-muted-foreground hover:text-foreground">Customers</a>
           <a href="#businesses" className="block py-2 text-muted-foreground hover:text-foreground">Businesses</a>
           <a href="#blogs" className="block py-2 text-muted-foreground hover:text-foreground">Blogs</a>
           <a href="#about" className="block py-2 text-muted-foreground hover:text-foreground">About</a>
-          <div className="flex flex-col gap-2 pt-4">
+          {/* <div className="flex flex-col gap-2 pt-4">
           <a href="#about">
-             <Button variant="outline" className="w-full">Request Demo</Button> </a>
-            {/* <Button className="w-full">Download App</Button> */}
-          </div>
+             <Button variant="outline" className="w-3/4  ">Request Demo</Button> </a>
+            <Button className="w-full">Download App</Button> 
+          </div> */}
+          <div className="flex flex-col items-center">
+          <a href="#about">
+            <Button variant="outline" className="w-3/8">
+              Request Demo
+            </Button>
+          </a>
+        </div>
         </motion.div>
       )}
+      
     </motion.nav>
   );
 };
@@ -92,7 +120,7 @@ const Hero = () => {
               transition={{ duration: 0.6, delay: 0.2 }}
             >
               <span className="w-2 h-2 bg-primary rounded-full animate-pulse" />
-              <span className="text-sm font-medium text-primary-foreground/90">Will be available in nearby stores..!!</span>
+              <span className="text-sm font-medium text-primary-foreground/90">Will be available soon in nearby stores..!!</span>
             </motion.div>
 
             <motion.h1
@@ -108,11 +136,12 @@ const Hero = () => {
             </motion.h1>
 
             <motion.p
-              className="text-lg md:text-xl text-primary-foreground/80 mb-8 max-w-xl mx-auto lg:mx-0"
+              className="text-lg md:text-xl text-primary-foreground/80 mb-8 max-w-2xl mx-auto lg:mx-0 leading-relaxed"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.4 }}
             >
+
               PayMall is India’s 1st in-store grocery shopping convenience app, built to revolutionize the way people shop inside stores.
             </motion.p>
 
@@ -234,15 +263,15 @@ const HowItWorks = () => {
     },
     {
       step: "02",
-      title: "Review Cart",
-      description: "Check your digital cart anytime. Easy to add, remove, or adjust quantities.",
-      icon: ShoppingCart,
-    },
-    {
-      step: "03",
       title: "Pay & Go",
       description: "Complete secure payment with one tap. Walk out with your digital receipt.",
       icon: Check,
+    },
+    {
+      step: "03",
+      title: "Review and Checkout",
+      description: "Check your scanned items, confirm quantities, and enjoy a fast, secure checkout experience.",
+      icon: ShoppingCart,
     },
   ];
 
@@ -289,7 +318,7 @@ const Benefits = () => {
     "Track spending in real-time",
     "Digital receipts & purchase history",
     "Exclusive in-app offers & rewards",
-    "Multiple payment options",
+    "Product locator inside store",
   ];
 
   const businessBenefits = [
@@ -321,7 +350,7 @@ const Benefits = () => {
                 Experience the joy of shopping without the frustration of waiting. PayMall puts you in control.
               </p>
 
-              <StaggerContainer className="space-y-4" staggerDelay={0.1}>
+              <StaggerContainer className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6" staggerDelay={0.1}>
                 {customerBenefits.map((benefit, index) => (
                   <StaggerItem key={index}>
                     <div className="flex items-center gap-3">
@@ -363,9 +392,13 @@ const Benefits = () => {
               <StaggerContainer className="grid grid-cols-2 gap-6" staggerDelay={0.1}>
                 {businessStats.map((stat, index) => (
                   <StaggerItem key={index}>
-                    <div className="bg-primary-foreground/10 backdrop-blur-sm rounded-2xl p-6 border border-primary-foreground/20">
-                      <div className="text-3xl font-display font-bold text-primary mb-1">{stat.value}</div>
-                      <div className="text-sm text-primary-foreground/70">{stat.label}</div>
+                    <div className="bg-primary-foreground/10 backdrop-blur-sm rounded-2xl p-6 border border-primary-foreground/20 text-center h-full flex flex-col justify-center">
+                      <div className="text-3xl font-display font-bold text-primary mb-2">
+                        {stat.value}
+                      </div>
+                      <div className="text-sm text-primary-foreground/70">
+                        {stat.label}
+                      </div>
                     </div>
                   </StaggerItem>
                 ))}
@@ -405,11 +438,28 @@ const Benefits = () => {
 
 const WhyPayMall = () => {
   const features = [
-    { icon: Shield, title: "Bank-Level Security", desc: "256-bit encryption for all transactions" },
-    { icon: Smartphone, title: "Works Everywhere", desc: "iOS, Android, and any modern device" },
-    { icon: Users, title: "24/7 Support", desc: "Dedicated team ready to help" },
-    { icon: Store, title: "Partner Network", desc: "More than 10+ stores in our network" },
-  ];
+  { 
+    icon: ShieldCheck, 
+    title: "Enterprise-Grade Security", 
+    desc: "End-to-end encrypted transactions with secure payment gateway integrations and strict data protection standards." 
+  },
+  { 
+    icon: BadgeCheck, 
+    title: "Trusted Retail Partners", 
+    desc: "Collaborating with verified supermarkets and retail stores to ensure seamless and reliable shopping experiences." 
+  },
+  { 
+    icon: Clock, 
+    title: "Real-Time Processing", 
+    desc: "Instant cart updates, live transaction confirmations, and secure digital receipts — no delays, no confusion." 
+  },
+  { 
+    icon: Headphones, 
+    title: "Dedicated Customer Support", 
+    desc: "Responsive support team available to assist customers and partner stores whenever needed." 
+  },
+];
+
 
   return (
     <section className="py-24 bg-background">
@@ -514,7 +564,7 @@ const About = () => {
   ];
 
   return (
-    <section id="about" className="py-24 gradient-subtle">
+    <section id="about" className="py-24 gradient-subtle ">
       <div className="container px-4">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           <ScrollAnimation direction="left">
@@ -526,11 +576,11 @@ const About = () => {
               Founded in 2025, PayMall was born from a simple frustration: why do we still wait in lines
               when technology has solved so many other problems?
             </p>
-            <p className="text-muted-foreground mb-8">
+            {/* <p className="text-muted-foreground mb-8">
               Our team of retail experts, fintech innovators, and UX designers came together to create
               a solution that benefits everyone — shoppers save time, businesses increase efficiency,
               and the planet benefits from reduced receipt paper waste.
-            </p>
+            </p> */}
             {/* <StaggerContainer className="flex gap-8" staggerDelay={0.1}>
               {aboutStats.map((stat, index) => (
                 <StaggerItem key={index}>
@@ -557,7 +607,7 @@ const Footer = () => {
     <footer className="bg-foreground text-primary-foreground py-16">
       <div className="container px-4">
         <ScrollAnimation>
-          <div className="grid md:grid-cols-4 gap-12 mb-12">
+          <div className="grid md:grid-cols-3  gap-12 mb-12">
             <div>
               <div className="flex items-center gap-2 mb-4">
                 <div className="w-10 h-10 gradient-hero rounded-xl flex items-center justify-center">
@@ -570,7 +620,7 @@ const Footer = () => {
               </p>
             </div>
 
-            <div>
+            {/*<div>
               <h4 className="font-display font-semibold mb-4">Product</h4>
               <ul className="space-y-2 text-sm text-primary-foreground/70">
                 <li><a href="#" className="hover:text-primary transition-colors">Features</a></li>
@@ -578,7 +628,7 @@ const Footer = () => {
                 <li><a href="#" className="hover:text-primary transition-colors">Security</a></li>
                 <li><a href="#" className="hover:text-primary transition-colors">Enterprise</a></li>
               </ul>
-            </div>
+            </div>*/}
 
             <div>
               <h4 className="font-display font-semibold mb-4">Company</h4>
@@ -650,9 +700,13 @@ const Footer = () => {
   );
 };
 
+// New Floating button
+
+
+
 const Index = () => {
   return (
-    <main className="min-h-screen">
+    <main className="min-h-screen overflow-hidden">
       <Navbar />
       <Hero />
       <Problem />
@@ -664,6 +718,8 @@ const Index = () => {
       <CustomerFeedbackForm />
       <About />
       <Footer />
+      <BackToTop />
+
     </main>
   );
 };

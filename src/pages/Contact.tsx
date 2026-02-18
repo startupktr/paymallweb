@@ -74,7 +74,7 @@ const Contact = () => {
     <main className="min-h-screen bg-background">
       {/* Header */}
       <motion.header 
-        className="bg-gradient-to-r from-primary via-primary to-secondary py-16 md:py-24"
+        className="gradient-hero py-16 md:py-24"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.6 }}
