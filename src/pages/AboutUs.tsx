@@ -159,7 +159,7 @@ const AboutUs = () => {
           </motion.div>
 
           {/* Timeline */}
-          <motion.div
+          {/* <motion.div
             className="mb-16"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -188,10 +188,10 @@ const AboutUs = () => {
                 </motion.div>
               ))}
             </div>
-          </motion.div>
+          </motion.div> */}
 
           {/* Team Stats */}
-          <motion.div
+          {/* <motion.div
             className="bg-foreground rounded-2xl p-8 text-primary-foreground"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -209,10 +209,10 @@ const AboutUs = () => {
                 </div>
               ))}
             </div>
-          </motion.div>
+          </motion.div> */}
 
           {/* CTA */}
-          <motion.div
+          {/* <motion.div
             className="mt-16 text-center"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -234,7 +234,7 @@ const AboutUs = () => {
                 </Button>
               </Link>
             </div>
-          </motion.div>
+          </motion.div> */}
         </div>
       </section>
     </main>

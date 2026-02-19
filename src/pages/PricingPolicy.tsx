@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { ArrowLeft, Tag, Percent, Receipt, Calculator, TrendingUp, Info } from "lucide-react";
+import { ArrowLeft, Tag, Percent, Receipt, Calculator, TrendingUp, Info, Sparkles } from "lucide-react";
 import { motion } from "framer-motion";
 
 const PricingPolicy = () => {
@@ -10,10 +10,11 @@ const PricingPolicy = () => {
       desc: "All prices shown include applicable taxes. No hidden fees or surprise charges at checkout."
     },
     {
-      icon: Percent,
-      title: "Best Price Guarantee",
-      desc: "We match in-store prices. If you find a lower price in-store, we'll adjust it."
-    },
+  icon: Sparkles,
+  title: "Smart Cart Optimization",
+  desc: "Our system automatically applies eligible offers and discounts in real time to ensure you always get the best available deal."
+}
+,
     {
       icon: Receipt,
       title: "Digital Receipts",
