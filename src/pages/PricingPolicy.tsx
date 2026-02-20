@@ -10,10 +10,10 @@ const PricingPolicy = () => {
       desc: "All prices shown include applicable taxes. No hidden fees or surprise charges at checkout."
     },
     {
-  icon: Sparkles,
-  title: "Smart Cart Optimization",
-  desc: "Our system automatically applies eligible offers and discounts in real time to ensure you always get the best available deal."
-}
+      icon: Sparkles,
+      title: "Smart Cart Optimization",
+      desc: "Our system automatically applies eligible offers and discounts in real time to ensure you always get the best available deal."
+    }
 ,
     {
       icon: Receipt,
