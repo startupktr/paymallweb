@@ -167,7 +167,7 @@ const BlogEditor = () => {
           <div className="flex items-center gap-2">
             <Button
               variant="outline"
-              onClick={() => handleSubmit(false)}
+              onClick={() => requestSubmit('draft')}
               disabled={isSaving || !formData.title || !formData.content}
               className="bg-transparent border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10"
             >
@@ -175,7 +175,7 @@ const BlogEditor = () => {
               Save Draft
             </Button>
             <Button
-              onClick={() => handleSubmit(true)}
+              onClick={() => requestSubmit('publish')}
               disabled={isSaving || !formData.title || !formData.content || !formData.excerpt}
             >
               <Eye className="w-4 h-4 mr-2" />
