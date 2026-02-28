@@ -21,7 +21,7 @@ import {
   Code2,
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { useCallback } from 'react';
+import { useCallback, useEffect } from 'react';
 
 interface RichTextEditorProps {
   content: string;
