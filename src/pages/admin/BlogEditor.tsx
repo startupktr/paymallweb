@@ -55,6 +55,7 @@ const BlogEditor = () => {
 
   const [tagInput, setTagInput] = useState('');
   const [isSaving, setIsSaving] = useState(false);
+  const [confirmAction, setConfirmAction] = useState<null | 'draft' | 'publish'>(null);
 
   // Redirect if not authenticated
   useEffect(() => {
