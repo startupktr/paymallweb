@@ -60,7 +60,10 @@ const AdminLogin = () => {
     setIsLoading(true);
 
     try {
-      const result = await login(email, password);
+      const timeoutPromise = new Promise<never>((_, reject) =>
+        setTimeout(() => reject(new Error('timeout')), 15000)
+      );
+      const result = await Promise.race([login(email, password), timeoutPromise]);
       
       if (result.success) {
         toast.success('Welcome to Admin Dashboard!');
@@ -68,8 +71,12 @@ const AdminLogin = () => {
       } else {
         toast.error(result.error || 'Login failed');
       }
-    } catch (error) {
-      toast.error('An unexpected error occurred');
+    } catch (error: any) {
+      if (error?.message === 'timeout') {
+        toast.error('Login request timed out. Please check your connection and try again.');
+      } else {
+        toast.error('An unexpected error occurred');
+      }
     }
 
     setIsLoading(false);
