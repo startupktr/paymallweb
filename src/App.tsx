@@ -21,6 +21,8 @@ const Blog = lazyRetry(() => import("./pages/Blog"));
 const BlogPost = lazyRetry(() => import("./pages/BlogPost"));
 const AdminLogin = lazyRetry(() => import("./pages/admin/AdminLogin"));
 const AdminRegister = lazyRetry(() => import("./pages/admin/AdminRegister"));
+const ForgotPassword = lazyRetry(() => import("./pages/admin/ForgotPassword"));
+const ResetPassword = lazyRetry(() => import("./pages/admin/ResetPassword"));
 const AdminBlogs = lazyRetry(() => import("./pages/admin/AdminBlogs"));
 const BlogEditor = lazyRetry(() => import("./pages/admin/BlogEditor"));
 const AdminManagement = lazyRetry(() => import("./pages/admin/AdminManagement"));
@@ -61,6 +63,8 @@ const App = () => (
             <Route path="/about" element={<AboutUs />} />
             <Route path="/admin/login" element={<AdminLogin />} />
             <Route path="/admin/register" element={<AdminRegister />} />
+            <Route path="/admin/forgot-password" element={<ForgotPassword />} />
+            <Route path="/admin/reset-password" element={<ResetPassword />} />
             <Route path="/admin/blogs" element={<AdminBlogs />} />
             <Route path="/admin/blogs/new" element={<BlogEditor />} />
             <Route path="/admin/blogs/:id/edit" element={<BlogEditor />} />
