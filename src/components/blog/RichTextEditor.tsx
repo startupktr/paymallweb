@@ -52,7 +52,7 @@ const RichTextEditor = ({ content, onChange, placeholder = 'Write your blog cont
         placeholder,
       }),
     ],
-    content,
+    content: content || '',
     onUpdate: ({ editor }) => {
       onChange(editor.getHTML());
     },
@@ -62,6 +62,13 @@ const RichTextEditor = ({ content, onChange, placeholder = 'Write your blog cont
       },
     },
   });
+
+  // Update editor content when prop changes (e.g., when existing blog data loads)
+  useEffect(() => {
+    if (editor && content && editor.getHTML() !== content) {
+      editor.commands.setContent(content);
+    }
+  }, [editor, content]);
 
   const addImage = useCallback(() => {
     const url = window.prompt('Enter image URL:');
