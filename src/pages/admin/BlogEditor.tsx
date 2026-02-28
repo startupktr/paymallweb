@@ -8,6 +8,16 @@ import { Textarea } from '@/components/ui/textarea';
 import { Switch } from '@/components/ui/switch';
 import { Badge } from '@/components/ui/badge';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+} from '@/components/ui/alert-dialog';
 import RichTextEditor from '@/components/blog/RichTextEditor';
 import { useAdminAuth } from '@/hooks/useAdminAuth';
 import {
@@ -45,6 +55,7 @@ const BlogEditor = () => {
 
   const [tagInput, setTagInput] = useState('');
   const [isSaving, setIsSaving] = useState(false);
+  const [confirmAction, setConfirmAction] = useState<null | 'draft' | 'publish'>(null);
 
   // Redirect if not authenticated
   useEffect(() => {
@@ -118,7 +129,12 @@ const BlogEditor = () => {
       // Error handled by mutation
     } finally {
       setIsSaving(false);
+      setConfirmAction(null);
     }
+  };
+
+  const requestSubmit = (action: 'draft' | 'publish') => {
+    setConfirmAction(action);
   };
 
   if (authLoading || (isEditMode && blogLoading)) {
@@ -151,7 +167,7 @@ const BlogEditor = () => {
           <div className="flex items-center gap-2">
             <Button
               variant="outline"
-              onClick={() => handleSubmit(false)}
+              onClick={() => requestSubmit('draft')}
               disabled={isSaving || !formData.title || !formData.content}
               className="bg-transparent border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10"
             >
@@ -159,7 +175,7 @@ const BlogEditor = () => {
               Save Draft
             </Button>
             <Button
-              onClick={() => handleSubmit(true)}
+              onClick={() => requestSubmit('publish')}
               disabled={isSaving || !formData.title || !formData.content || !formData.excerpt}
             >
               <Eye className="w-4 h-4 mr-2" />
@@ -331,6 +347,31 @@ const BlogEditor = () => {
           </div>
         </div>
       </div>
+
+      {/* Confirmation Dialog */}
+      <AlertDialog open={confirmAction !== null} onOpenChange={(open) => !open && setConfirmAction(null)}>
+        <AlertDialogContent>
+          <AlertDialogHeader>
+            <AlertDialogTitle>
+              {confirmAction === 'publish' ? 'Publish Blog Post' : 'Save as Draft'}
+            </AlertDialogTitle>
+            <AlertDialogDescription>
+              {confirmAction === 'publish'
+                ? `Are you sure you want to publish "${formData.title}"? It will be visible to everyone.`
+                : `Are you sure you want to save "${formData.title}" as a draft?`}
+            </AlertDialogDescription>
+          </AlertDialogHeader>
+          <AlertDialogFooter>
+            <AlertDialogCancel disabled={isSaving}>Cancel</AlertDialogCancel>
+            <AlertDialogAction
+              onClick={() => handleSubmit(confirmAction === 'publish')}
+              disabled={isSaving}
+            >
+              {isSaving ? 'Saving...' : confirmAction === 'publish' ? 'Publish' : 'Save Draft'}
+            </AlertDialogAction>
+          </AlertDialogFooter>
+        </AlertDialogContent>
+      </AlertDialog>
     </main>
   );
 };
