@@ -164,6 +164,9 @@ const AdminLogin = () => {
             </form>
 
             <div className="mt-6 text-center space-y-2">
+              <Link to="/admin/forgot-password" className="text-sm text-primary hover:underline block">
+                Forgot your password?
+              </Link>
               <Link to="/admin/register" className="text-sm text-primary hover:underline block">
                 Don't have an account? Register with invite code
               </Link>
