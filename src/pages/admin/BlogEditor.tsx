@@ -129,7 +129,12 @@ const BlogEditor = () => {
       // Error handled by mutation
     } finally {
       setIsSaving(false);
+      setConfirmAction(null);
     }
+  };
+
+  const requestSubmit = (action: 'draft' | 'publish') => {
+    setConfirmAction(action);
   };
 
   if (authLoading || (isEditMode && blogLoading)) {
