@@ -347,6 +347,31 @@ const BlogEditor = () => {
           </div>
         </div>
       </div>
+
+      {/* Confirmation Dialog */}
+      <AlertDialog open={confirmAction !== null} onOpenChange={(open) => !open && setConfirmAction(null)}>
+        <AlertDialogContent>
+          <AlertDialogHeader>
+            <AlertDialogTitle>
+              {confirmAction === 'publish' ? 'Publish Blog Post' : 'Save as Draft'}
+            </AlertDialogTitle>
+            <AlertDialogDescription>
+              {confirmAction === 'publish'
+                ? `Are you sure you want to publish "${formData.title}"? It will be visible to everyone.`
+                : `Are you sure you want to save "${formData.title}" as a draft?`}
+            </AlertDialogDescription>
+          </AlertDialogHeader>
+          <AlertDialogFooter>
+            <AlertDialogCancel disabled={isSaving}>Cancel</AlertDialogCancel>
+            <AlertDialogAction
+              onClick={() => handleSubmit(confirmAction === 'publish')}
+              disabled={isSaving}
+            >
+              {isSaving ? 'Saving...' : confirmAction === 'publish' ? 'Publish' : 'Save Draft'}
+            </AlertDialogAction>
+          </AlertDialogFooter>
+        </AlertDialogContent>
+      </AlertDialog>
     </main>
   );
 };
