@@ -1,4 +1,5 @@
 import { useState } from "react";
+import pilotInfographic from "@/assets/pilot-program-infographic.png";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { ScrollAnimation } from "@/components/ScrollAnimation";
@@ -112,6 +113,11 @@ const PilotProgram = () => {
               <p className="text-lg text-muted-foreground leading-relaxed">
                 The PayMall Pilot Program is a limited-time initiative designed to digitally transform selected local marts and kirana stores — at zero cost during the pilot phase.
               </p>
+            </div>
+          </ScrollAnimation>
+          <ScrollAnimation>
+            <div className="mt-12 max-w-3xl mx-auto">
+              <img src={pilotInfographic} alt="PayMall Pilot Program - Go Digital for Free infographic showing pilot offer details and mart benefits" className="w-full rounded-2xl shadow-lg border border-border/50" />
             </div>
           </ScrollAnimation>
         </div>
