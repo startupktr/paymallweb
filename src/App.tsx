@@ -32,6 +32,7 @@ const RefundCancellation = lazyRetry(() => import("./pages/RefundCancellation"))
 const PricingPolicy = lazyRetry(() => import("./pages/PricingPolicy"));
 const Contact = lazyRetry(() => import("./pages/Contact"));
 const AboutUs = lazyRetry(() => import("./pages/AboutUs"));
+const PilotProgram = lazyRetry(() => import("./pages/PilotProgram"));
 const NotFound = lazyRetry(() => import("./pages/NotFound"));
 
 const queryClient = new QueryClient();
@@ -61,6 +62,7 @@ const App = () => (
             <Route path="/pricing" element={<PricingPolicy />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/about" element={<AboutUs />} />
+            <Route path="/pilot-program" element={<PilotProgram />} />
             <Route path="/admin/login" element={<AdminLogin />} />
             <Route path="/admin/register" element={<AdminRegister />} />
             <Route path="/admin/forgot-password" element={<ForgotPassword />} />
