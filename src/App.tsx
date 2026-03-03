@@ -32,6 +32,7 @@ const RefundCancellation = lazyRetry(() => import("./pages/RefundCancellation"))
 const PricingPolicy = lazyRetry(() => import("./pages/PricingPolicy"));
 const Contact = lazyRetry(() => import("./pages/Contact"));
 const AboutUs = lazyRetry(() => import("./pages/AboutUs"));
+const PilotProgram = lazyRetry(() => import("./pages/PilotProgram"));
 const NotFound = lazyRetry(() => import("./pages/NotFound"));
 
 const queryClient = new QueryClient();
