@@ -1,4 +1,5 @@
 import { useState } from "react";
+import pilotInfographic from "@/assets/pilot-program-infographic.png";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { ScrollAnimation } from "@/components/ScrollAnimation";
