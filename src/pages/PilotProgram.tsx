@@ -115,6 +115,11 @@ const PilotProgram = () => {
               </p>
             </div>
           </ScrollAnimation>
+          <ScrollAnimation>
+            <div className="mt-12 max-w-3xl mx-auto">
+              <img src={pilotInfographic} alt="PayMall Pilot Program - Go Digital for Free infographic showing pilot offer details and mart benefits" className="w-full rounded-2xl shadow-lg border border-border/50" />
+            </div>
+          </ScrollAnimation>
         </div>
       </section>
 
