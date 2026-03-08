@@ -13,6 +13,7 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import BackToTop from "@/pages/BackToTop"; // adjust path if needed
 import { useEffect, useRef } from "react";
+import FAQSection from "@/components/FAQSection";
 
 
 const Navbar = () => {
@@ -717,6 +718,7 @@ const Index = () => {
       <FeaturedBlogs />
       <CustomerFeedbackForm />
       <About />
+      <FAQSection/>
       <Footer />
       <BackToTop />
 
